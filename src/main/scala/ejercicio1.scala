@@ -10,15 +10,15 @@ object ejercicio1 {
   class ArrayQueue[T](elems: T*) extends MutableQueue[T] {
     private val buffer = ArrayBuffer[T](elems: _*)
 
-    def enqueue(elem: T): Unit = {
+    override def enqueue(elem: T): Unit = {
       buffer.append(elem)
     }
 
-    def dequeue(): Option[T] = {
+    override def dequeue(): Option[T] = {
       if buffer.isEmpty then None else Some(buffer.remove(0))
     }
 
-    def isEmpty: Boolean = {
+    override def isEmpty: Boolean = {
       buffer.isEmpty
     }
 
